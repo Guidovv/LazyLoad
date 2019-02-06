@@ -55,8 +55,7 @@ var lazyLoad = (function( user_options ) {
 				function loadSrc() {
 					options.items.forEach(function(item) {
 						var top = item.getBoundingClientRect().top;
-						var offset = window.pageYOffset < window.innerHeight ? window.innerHeight : window.pageYOffset;
-						if (top <= offset) {
+						if (top <= (window.innerHeight * 1.5)) {
 							if (options.setAttribute == 'backgroundImage') {
 								item.style[options.setAttribute] = "url(" + item.getAttribute(options.getAttribute) + ")";
 							} else {

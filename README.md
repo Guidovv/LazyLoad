@@ -1,6 +1,6 @@
 # Lazyload.js
 
-Lazyload anything you want
+Lazyload any resource you need lazyloaded
 
 **Options:**<br>
 	- items: (nodelist)<br>
@@ -13,7 +13,7 @@ Lazyload anything you want
 
 **Example javascript:**<br>
 lazyLoad({<br>
-	items: document.querySelectorAll('[data-backgroundimage]'),<br>
-	setAttribute: 'backgroundImage',<br>
-	getAttribute: 'data-backgroundimage'<br>
+ items: document.querySelectorAll('[data-backgroundimage]'),<br>
+ setAttribute: 'backgroundImage',<br>
+ getAttribute: 'data-backgroundimage'<br>
 });

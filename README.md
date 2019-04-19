@@ -13,7 +13,7 @@ Lazyload any resource you need lazyloaded
 
 **Example javascript:**<br>
 lazyLoad({<br>
- items: document.querySelectorAll('[data-backgroundimage]'),<br>
- setAttribute: 'backgroundImage',<br>
- getAttribute: 'data-backgroundimage'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;items: document.querySelectorAll('[data-backgroundimage]'),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setAttribute: 'backgroundImage',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getAttribute: 'data-backgroundimage'<br>
 });

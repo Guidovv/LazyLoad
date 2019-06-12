@@ -1,19 +1,25 @@
-# Lazyload.js
+# LazyLoad.js
 
 Lazyload any resource you need lazyloaded
 
-**Options:**<br>
-	- items: (nodelist)<br>
-	- setAttribute: (string)<br>
-	- getAttribute: (string)<br><br>
+### Usage
+```
+<div class="blog-item" data-backgroundImage="https://placekitten.com/100/200"></div>
+<div class="blog-item" data-backgroundImage="https://placekitten.com/200/300"></div>
+<div class="blog-item" data-backgroundImage="https://placekitten.com/300/400"></div>
 
-**Example html:**<br>
-`<div class="blog-item" data-backgroundImage="https://placekitten.com/408/287"></div>`<br>
-`<div class="blog-item" data-backgroundImage="https://placekitten.com/408/287"></div>`
-
-**Example javascript:**<br>
-lazyLoad({<br>
-&nbsp;&nbsp;&nbsp;&nbsp;items: document.querySelectorAll('[data-backgroundimage]'),<br>
-&nbsp;&nbsp;&nbsp;&nbsp;setAttribute: 'backgroundImage',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;getAttribute: 'data-backgroundimage'<br>
+<script>
+lazyLoad({
+    items: document.querySelectorAll('[data-backgroundimage]'),
+    setAttribute: 'backgroundImage',
+    getAttribute: 'data-backgroundimage'
 });
+</script>
+``` 
+### Options
+
+| Option | Value |
+| ------ | ------ |
+| `items` | **Nodelist**|
+| `setAttribute` | **String**|
+| `getAttribute` | **String**|

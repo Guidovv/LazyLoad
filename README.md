@@ -1,6 +1,6 @@
 # LazyLoad.js
 
-Lazyload any resource you need lazyloaded
+Lazyload any resource when they are close to enter the viewport.
 
 ### Usage
 ```

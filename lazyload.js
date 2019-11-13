@@ -47,7 +47,6 @@ var lazyLoad = (function( user_options ) {
 			}
 
 			loadSrc();
-			updateItems();
 
 			scrolling = !scrolling;
 		}, 100);
@@ -55,17 +54,42 @@ var lazyLoad = (function( user_options ) {
 
 	function loadSrc() {
 		for (var i = 0; i < options.items.length; i++) {
-			var item = options.items[i];
-			var top = item.getBoundingClientRect().top;
-			if (top <= (window.innerHeight * 1.5)) {
-				if (options.setAttribute == 'backgroundImage') {
-					item.style[options.setAttribute] = "url(" + item.getAttribute(options.getAttribute) + ")";
-				} else {
-					item.setAttribute(options.setAttribute, item.getAttribute(options.getAttribute));
+			(function(index) {
+				var item = options.items[index];
+				var top = item.getBoundingClientRect().top;
+
+				// Element is too far down
+				if (top > (window.innerHeight * 1.5)) {
+					return;
 				}
-				item.removeAttribute(options.getAttribute);
-			}
+
+				if (item.tagName == 'IMG' || options.setAttribute == 'backgroundImage') {
+					var img = new Image();
+
+					img.onload = function() {
+						load(item, img.getAttribute('src'));
+						img = null;
+					}
+
+					img.src = item.getAttribute(options.getAttribute);
+				} else {
+					load(item);
+				}
+			})(i);
 		}
+	}
+
+	function load(item, value) {
+		value = value || item.getAttribute(options.getAttribute);
+
+		if (options.setAttribute == 'backgroundImage') {
+			item.style[options.setAttribute] = "url(" + value + ")";
+		} else {
+			item.setAttribute(options.setAttribute, value);
+		}
+
+		item.removeAttribute(options.getAttribute);
+		updateItems();
 	}
 
 	function updateItems() {
